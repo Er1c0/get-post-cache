@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        async function getRequest() {
+            const response = await fetch('http://localhost:30000/asdf')
+            const text = await response.text()
+            alert(text)
+        }
+        async function postRequest(message) {
+            const response = await fetch(
+                'http://localhost:30000/asdf',
+                {
+                    method: 'post',
+                    body: { message },
+                }
+            )
+            const text = await response.text()
+            alert(text)
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="getRequest()">Trigger GET request</button>
+    <br />
+    <button onclick="postRequest('trigger1')">Trigger POST request (body 1)</button>
+    <br />
+    <button onclick="postRequest('trigger2')">Trigger POST request (body 2)</button>
+</body>
+
+</html>
